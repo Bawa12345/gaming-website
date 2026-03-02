@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusPlay — Ultimate Gaming Portal</title>
+  <meta name="description"
+    content="NexusPlay is your ultimate online gaming destination. Play car games, shooting games, puzzle games, cricket, and multiplayer games instantly in your browser." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Animated background -->
+  <div class="bg-grid"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">Gamer Ghost</span>
+    </div>
+    <div class="nav-links">
+      <a href="#games" class="nav-link">Games</a>
+      <a href="#categories" class="nav-link">Categories</a>
+      <a href="#leaderboard" class="nav-link">Leaderboard</a>
+    </div>
+    <div class="nav-right">
+      <div class="score-badge">🏆 <span id="total-score">0</span> pts</div>
+      <button class="btn-play-now" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">Play
+        Now</button>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🎮 50+ Games Available</div>
+      <h1 class="hero-title">
+        Play Epic Games<br />
+        <span class="gradient-text">Right In Your Browser</span>
+      </h1>
+      <p class="hero-subtitle">Car races, space shooters, cricket battles, puzzles & multiplayer mayhem — all free, no
+        download needed!</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">🚀
+          Start Playing</button>
+        <button class="btn-secondary"
+          onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">Browse Categories</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">18</span><span class="stat-label">Games</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Categories</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-cards">
+        <div class="float-card card-1">🏎️</div>
+        <div class="float-card card-2">🎯</div>
+        <div class="float-card card-3">🧩</div>
+        <div class="float-card card-4">🏏</div>
+        <div class="float-card card-5">🚀</div>
+        <div class="float-card card-6">👾</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <h2 class="section-title">Game <span class="gradient-text">Categories</span></h2>
+      <div class="category-tabs">
+        <button class="cat-tab active" data-cat="all" onclick="filterGames('all')">🎮 All Games</button>
+        <button class="cat-tab" data-cat="racing" onclick="filterGames('racing')">🏎️ Racing</button>
+        <button class="cat-tab" data-cat="shooting" onclick="filterGames('shooting')">🎯 Shooting</button>
+        <button class="cat-tab" data-cat="puzzle" onclick="filterGames('puzzle')">🧩 Puzzle</button>
+        <button class="cat-tab" data-cat="sports" onclick="filterGames('sports')">🏆 Sports</button>
+        <button class="cat-tab" data-cat="multiplayer" onclick="filterGames('multiplayer')">👥 Multiplayer</button>
+        <button class="cat-tab" data-cat="arcade" onclick="filterGames('arcade')">👾 Arcade</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Grid -->
+  <section class="games-section" id="games">
+    <div class="container">
+      <div class="games-grid" id="games-grid">
+
+        <!-- Car Racing -->
+        <div class="game-card" data-cat="racing" data-game="car-racing">
+          <div class="game-thumb racing-thumb">
+            <div class="thumb-icon">🏎️</div>
+            <div class="thumb-particles"></div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Turbo Dash</h3>
+            <p class="game-desc">High-speed street racing! Dodge traffic and collect power-ups.</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.8</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('car-racing')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Space Shooter -->
+        <div class="game-card" data-cat="shooting" data-game="space-shooter">
+          <div class="game-thumb shooter-thumb">
+            <div class="thumb-icon">🚀</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Galactic Blaster</h3>
+            <p class="game-desc">Defend Earth from alien invasions! Shoot enemies and collect upgrades.</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.9</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('space-shooter')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Snake -->
+        <div class="game-card" data-cat="arcade" data-game="snake">
+          <div class="game-thumb snake-thumb">
+            <div class="thumb-icon">🐍</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Neon Snake</h3>
+            <p class="game-desc">Classic snake with neon visuals. Grow longer and avoid walls!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.7</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('snake')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Sliding Puzzle -->
+        <div class="game-card" data-cat="puzzle" data-game="sliding-puzzle">
+          <div class="game-thumb puzzle-thumb">
+            <div class="thumb-icon">🧩</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Slide Master</h3>
+            <p class="game-desc">Solve the sliding number puzzle in fewest moves!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.5</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('sliding-puzzle')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Cricket -->
+        <div class="game-card" data-cat="sports" data-game="cricket">
+          <div class="game-thumb cricket-thumb">
+            <div class="thumb-icon">🏏</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Cricket Smash</h3>
+            <p class="game-desc">Time your shots perfectly and hit sixes to win the match!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.8</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('cricket')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Tic Tac Toe -->
+        <div class="game-card" data-cat="multiplayer" data-game="tictactoe">
+          <div class="game-thumb ttt-thumb">
+            <div class="thumb-icon">❌</div>
+          </div>
+          <div class="game-badge multi">Multiplayer</div>
+          <div class="game-info">
+            <h3 class="game-title">Tic Tac Toe</h3>
+            <p class="game-desc">Classic 2-player strategy game. X vs O — who wins?</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.6</span>
+              <span class="game-players">👥 2 Players</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('tictactoe')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Pong -->
+        <div class="game-card" data-cat="multiplayer" data-game="pong">
+          <div class="game-thumb pong-thumb">
+            <div class="thumb-icon">🏓</div>
+          </div>
+          <div class="game-badge multi">Multiplayer</div>
+          <div class="game-info">
+            <h3 class="game-title">Neon Pong</h3>
+            <p class="game-desc">2-player neon ping pong battle. First to 10 wins!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.7</span>
+              <span class="game-players">👥 2 Players</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('pong')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Memory Match -->
+        <div class="game-card" data-cat="puzzle" data-game="memory">
+          <div class="game-thumb memory-thumb">
+            <div class="thumb-icon">🃏</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Memory Matrix</h3>
+            <p class="game-desc">Flip cards and find matching pairs. Test your memory!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.6</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('memory')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Flappy Bird -->
+        <div class="game-card" data-cat="arcade" data-game="flappy">
+          <div class="game-thumb flappy-thumb">
+            <div class="thumb-icon">🐦</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Flappy Neon</h3>
+            <p class="game-desc">Navigate the glowing bird through neon pipes. Don't crash!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.9</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('flappy')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Breakout -->
+        <div class="game-card" data-cat="arcade" data-game="breakout">
+          <div class="game-thumb breakout-thumb">
+            <div class="thumb-icon">🧱</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Brick Breaker</h3>
+            <p class="game-desc">Break all the bricks with your bouncing ball and paddle!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.7</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('breakout')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Zombie Shooter -->
+        <div class="game-card" data-cat="shooting" data-game="zombie">
+          <div class="game-thumb zombie-thumb">
+            <div class="thumb-icon">🧟</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Zombie Strike</h3>
+            <p class="game-desc">Survive endless zombie waves! Click to shoot them down!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.8</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('zombie')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Connect Four -->
+        <div class="game-card" data-cat="multiplayer" data-game="connect4">
+          <div class="game-thumb connect4-thumb">
+            <div class="thumb-icon">🔴</div>
+          </div>
+          <div class="game-badge multi">Multiplayer</div>
+          <div class="game-info">
+            <h3 class="game-title">Connect Four</h3>
+            <p class="game-desc">Drop your discs and connect 4 in a row before your opponent!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.7</span>
+              <span class="game-players">👥 2 Players</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('connect4')">▶ Play Now</button>
+          </div>
+        </div>
+
+
+        <!-- Whack-a-Mole -->
+        <div class="game-card" data-cat="arcade" data-game="whackamole">
+          <div class="game-thumb whack-thumb">
+            <div class="thumb-icon">🦔</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Whack-a-Mole</h3>
+            <p class="game-desc">Smash the moles as fast as you can before they disappear!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.8</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('whackamole')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Basketball -->
+        <div class="game-card" data-cat="sports" data-game="basketball">
+          <div class="game-thumb basket-thumb">
+            <div class="thumb-icon">🏀</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Hoop Blaster</h3>
+            <p class="game-desc">Click at the perfect moment to shoot hoops and rack up points!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.7</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('basketball')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Math Blitz -->
+        <div class="game-card" data-cat="puzzle" data-game="mathblitz">
+          <div class="game-thumb math-thumb">
+            <div class="thumb-icon">🔢</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Math Blitz</h3>
+            <p class="game-desc">Answer math questions as fast as possible! Beat the clock!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.6</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('mathblitz')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Drift King -->
+        <div class="game-card" data-cat="racing" data-game="drift">
+          <div class="game-thumb drift-thumb">
+            <div class="thumb-icon">🚗</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Drift King</h3>
+            <p class="game-desc">Navigate neon hairpin turns and rack up massive drift scores!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.9</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('drift')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Word Scramble -->
+        <div class="game-card" data-cat="puzzle" data-game="wordscramble">
+          <div class="game-thumb word-thumb">
+            <div class="thumb-icon">📝</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Word Scramble</h3>
+            <p class="game-desc">Unscramble the letters to spell the hidden word before time runs out!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.5</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('wordscramble')">▶ Play Now</button>
+          </div>
+        </div>
+
+        <!-- Dragon Slayer -->
+        <div class="game-card" data-cat="arcade" data-game="dragon">
+          <div class="game-thumb dragon-thumb">
+            <div class="thumb-icon">🐉</div>
+          </div>
+          <div class="game-badge single">Single Player</div>
+          <div class="game-info">
+            <h3 class="game-title">Dragon Slayer</h3>
+            <p class="game-desc">Dodge fireballs and strike the dragon down to claim victory!</p>
+            <div class="game-meta">
+              <span class="game-rating">⭐ 4.8</span>
+              <span class="game-players">👤 1 Player</span>
+            </div>
+            <button class="btn-launch" onclick="openGame('dragon')">▶ Play Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaderboard -->
+  <section class="leaderboard-section" id="leaderboard">
+    <div class="container">
+      <h2 class="section-title">🏆 <span class="gradient-text">Your Scores</span></h2>
+      <div class="leaderboard-grid" id="leaderboard-grid">
+        <div class="lb-empty">Play games to see your scores here!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">⚡ Gamer Ghost</div>
+      <p class="footer-text">Your ultimate browser gaming destination. No downloads, just play!</p>
+      <div class="footer-cats">
+        <span>🏎️ Racing</span>
+        <span>🎯 Shooting</span>
+        <span>🧩 Puzzles</span>
+        <span>🏆 Sports</span>
+        <span>👥 Multiplayer</span>
+        <span>👾 Arcade</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Game Modal -->
+  <div class="game-modal" id="game-modal">
+    <div class="modal-overlay" onclick="closeGame()"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Game</h2>
+        <div class="modal-controls">
+          <span class="modal-score">Score: <strong id="modal-score">0</strong></span>
+          <button class="btn-close" onclick="closeGame()">✕</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <canvas id="game-canvas"></canvas>
+        <div class="game-ui" id="game-ui"></div>
+      </div>
+      <div class="modal-footer" id="modal-footer"></div>
+    </div>
+  </div>
+
+  <script src="games.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
